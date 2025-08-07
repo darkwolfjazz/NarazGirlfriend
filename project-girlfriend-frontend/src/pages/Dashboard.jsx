@@ -2,6 +2,7 @@ import React from 'react'
 import MoodCard from '../components/mood/MoodCard'
 import { useNavigate } from 'react-router-dom'
 import { Button } from 'primereact/button';
+import SongCard from '../components/songs/SongCard';
 const Dashboard = ({setIsLoggedIn}) => {
    
    const handleLogout = () => {
@@ -18,6 +19,7 @@ const Dashboard = ({setIsLoggedIn}) => {
          <Button label="Logout" icon="pi pi-sign-out" severity="danger" onClick={handleLogout} />
         <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
         <MoodCard onClick={()=>navigate('/mood')}/>
+        <SongCard onClick={()=>navigate('/romantic-songs')}/>
         </div>
     </div>
   )

@@ -4,6 +4,7 @@ import LoginForm from './components/Login/LoginForm'
 import Dashboard from './pages/Dashboard'
 import MoodComponent from './components/mood/MoodComponent'
 import {BrowserRouter as Router, Routes, Route,Navigate} from 'react-router-dom'
+import RomanticSongs from './components/songs/RomanticSongs'
 
 function App() {
  
@@ -30,6 +31,10 @@ useEffect(()=>{
         path='/mood'
         element={isLoggedIn?
         <MoodComponent setIsLoggedIn={setIsLoggedIn}/>:<Navigate to="/"/>}
+        />
+        <Route
+        path='/romantic-songs'
+        element={isLoggedIn?<RomanticSongs setIsLoggedIn={setIsLoggedIn}/>:<Navigate to="/"/>}
         />
      </Routes>
     </Router>
