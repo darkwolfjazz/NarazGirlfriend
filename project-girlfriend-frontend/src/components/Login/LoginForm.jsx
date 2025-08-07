@@ -5,20 +5,28 @@ import { Password } from "primereact/password";
 import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
+import { useNavigate } from "react-router-dom";
 
 // THEME IMPORTS should be at the app entry point (not in this file!)
 // import 'primereact/resources/themes/lara-light-indigo/theme.css';
 // import 'primereact/resources/primereact.min.css';
 // import 'primeicons/primeicons.css';
 
-const LoginForm = () => {
+const LoginForm = ({setIsLoggedIn}) => {
+  const navigate=useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const toast = useRef(null);
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post('http://localhost:8080/api/login', { username, password });
+      const res = await axios.post('http://localhost:8080/api/login', 
+        { username, 
+          password 
+        });
+        localStorage.setItem('isLoggedIn','true');
+        setIsLoggedIn(true);
+        navigate('/dashboard');
       toast.current.show({ severity: 'success', summary: 'Login successful', detail: res.data, life: 3000 });
     } catch (err) {
       const errorMsg = err?.response?.data
