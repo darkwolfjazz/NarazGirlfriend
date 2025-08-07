@@ -1,4 +1,4 @@
-import { use, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import './App.css'
 import LoginForm from './components/Login/LoginForm'
 import Dashboard from './pages/Dashboard'
@@ -7,7 +7,16 @@ import {BrowserRouter as Router, Routes, Route,Navigate} from 'react-router-dom'
 
 function App() {
  
-  const[isLoggedIn,setIsLoggedIn]=useState(localStorage.getItem("isLoggedIn") === "true")
+  const[isLoggedIn,setIsLoggedIn]=useState(()=>{
+   return localStorage.getItem('isLoggedIn')==='true';
+  });
+
+useEffect(()=>{
+  localStorage.setItem('isLoggedIn',isLoggedIn);
+},[isLoggedIn]);
+
+
+
 
   return (
     <Router>
@@ -15,7 +24,7 @@ function App() {
       <Route path="/" element={<LoginForm setIsLoggedIn={setIsLoggedIn}/>} />
        <Route
           path="/dashboard"
-          element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />}
+          element={isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn}/> : <Navigate to="/" />}
         />
         <Route
         path='/mood'
