@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard'
 import MoodComponent from './components/mood/MoodComponent'
 import {BrowserRouter as Router, Routes, Route,Navigate} from 'react-router-dom'
 import RomanticSongs from './components/songs/RomanticSongs'
+import ComplimentComponent from './components/compliments/ComplimentComponent'
 
 function App() {
  
@@ -35,6 +36,10 @@ useEffect(()=>{
         <Route
         path='/romantic-songs'
         element={isLoggedIn?<RomanticSongs setIsLoggedIn={setIsLoggedIn}/>:<Navigate to="/"/>}
+        />
+        <Route
+        path='/compliments'
+        element={isLoggedIn?<ComplimentComponent setIsLoggedIn={setIsLoggedIn}/>:<Navigate to="/"/>}
         />
      </Routes>
     </Router>

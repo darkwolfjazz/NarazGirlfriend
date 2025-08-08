@@ -1,0 +1,20 @@
+/* ComplimentComponent.css */
+
+.compliment-card {
+  padding: 1.5rem;
+  background: #ffe4ec;
+  border: 2px solid #f8bbd0;
+  border-radius: 20px;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+  font-size: 1.2rem;
+  color: #880e4f;
+  animation: fadeIn 0.5s ease-in-out;
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
