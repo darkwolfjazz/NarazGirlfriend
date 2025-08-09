@@ -21,20 +21,20 @@ const MoodCard = ({onClick}) => {
       onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.03)')}
       onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
     >
-      {/* Banner/Image */}
+      
       <div
         style={{
-          height: '260px', // 🔹 Increased from 120px → 160px (can use 180px too)
-          backgroundImage: 'url(/assets/banner_images/mood_card.jpg)', // updated URL size for clarity
+          height: '260px', 
+          backgroundImage: 'url(/assets/banner_images/mood_card.jpg)', 
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderTopLeftRadius: '12px',
           borderTopRightRadius: '12px',
         }}
       />
-      {/* Content */}
-      <div style={{ padding: '1.25rem', textAlign: 'center' }}> {/* 🔹 slightly more padding */}
-        <h3 style={{ margin: '0.5rem 0', fontSize: '1.2rem' }}>Mood Fixer</h3> {/* 🔹 bigger title */}
+     
+      <div style={{ padding: '1.25rem', textAlign: 'center' }}> 
+        <h3 style={{ margin: '0.5rem 0', fontSize: '1.2rem' }}>Mood Fixer</h3> 
         <p style={{ margin: 0, fontSize: '0.95rem' }}>Feeling low? Lets fix your mood with fun and love</p>
       </div>
     </div>

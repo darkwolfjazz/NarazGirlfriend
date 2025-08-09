@@ -24,17 +24,17 @@ const QuizCard = ({onClick}) => {
       {/* Banner/Image */}
       <div
         style={{
-          height: '260px', // 🔹 Increased from 120px → 160px (can use 180px too)
-          backgroundImage: 'url(/assets/banner_images/NetflixCard.jpg)', // updated URL size for clarity
+          height: '260px',
+          backgroundImage: 'url(/assets/banner_images/NetflixCard.jpg)', 
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderTopLeftRadius: '12px',
           borderTopRightRadius: '12px',
         }}
       />
-      {/* Content */}
-      <div style={{ padding: '1.25rem', textAlign: 'center' }}> {/* 🔹 slightly more padding */}
-        <h3 style={{ margin: '0.5rem 0', fontSize: '1.2rem' }}>Netflix Quiz</h3> {/* 🔹 bigger title */}
+     
+      <div style={{ padding: '1.25rem', textAlign: 'center' }}> 
+        <h3 style={{ margin: '0.5rem 0', fontSize: '1.2rem' }}>Netflix Quiz</h3> 
         <p style={{ margin: 0, fontSize: '0.95rem' }}>Time to check your netflix encyclopedia knowledge</p>
       </div>
     </div>

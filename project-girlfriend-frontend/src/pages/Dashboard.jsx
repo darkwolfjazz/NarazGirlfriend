@@ -6,7 +6,7 @@ import SongCard from '../components/songs/SongCard';
 import ComplimentCard from '../components/compliments/ComplimentCard';
 import QuizCard from '../components/quiz/QuizCard';
 
-// Responsive CSS for grid using CSS-in-JS (no external CSS needed)
+
 const gridCss = `
 .dashboard-row {
   display: flex;
@@ -44,19 +44,65 @@ const Dashboard = ({setIsLoggedIn}) => {
   
   const navigate=useNavigate();
     return (
-     <div style={{ padding: '2rem', width: '100%', boxSizing: 'border-box' }}>
-      {/* Inject responsive grid CSS */}
+    <div style={{ padding: '2rem', width: '100%', boxSizing: 'border-box' }}>
       <style>{gridCss}</style>
-      <h2 style={{ textAlign: 'center' }}>Welcome! What would you like to do today?</h2>
-      <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '1rem',
+          marginBottom: '2rem',
+          flexWrap: 'wrap'
+        }}
+      >
+        <div style={{ textAlign: 'left' }}>
+          <h2
+            style={{
+              fontSize: '2.5rem',
+              fontWeight: 700,
+              background: 'linear-gradient(90deg, #007ad9, #00c6ff)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              margin: 0,
+              letterSpacing: '1px'
+            }}
+          >
+            Welcome!
+          </h2>
+         <div
+  style={{
+    fontSize: '1.3rem',
+    fontWeight: 600,
+    color: '#2c3e50',
+    marginTop: '0.4rem',
+    fontFamily: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem'
+  }}
+>
+  <span role="img" aria-label="sparkles">✨</span>
+  Ready to explore something amazing?
+</div>
+
+        </div>
         <Button
           label="Logout"
           icon="pi pi-sign-out"
           severity="danger"
           onClick={handleLogout}
+          style={{
+            fontWeight: 600,
+            borderRadius: '1.5rem',
+            padding: '0.5rem 2rem',
+            fontSize: '1rem',
+            boxShadow: '0 2px 8px 0 rgba(0,122,217,0.08)'
+          }}
         />
       </div>
-      {/* Responsive grid row */}
+
       <div className="dashboard-row" style={{ marginTop: '2rem' }}>
         <MoodCard onClick={() => navigate('/mood')} />
         <SongCard onClick={() => navigate('/romantic-songs')} />

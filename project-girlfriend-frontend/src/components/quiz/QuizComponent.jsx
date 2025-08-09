@@ -17,7 +17,7 @@ const QuizComponent = ({setIsLoggedIn}) => {
   const[quizOver,setQuizOver]=useState(false);
   const[loading,setLoading]=useState(false);
   const toast=useRef(null);
-
+  const navigate=useNavigate();
   const[usedQuestionIds,setUsedQuestionIds]=useState(new Set());
 
   const handleLogout=()=>{
@@ -123,6 +123,7 @@ const QuizComponent = ({setIsLoggedIn}) => {
             <h3>Quiz Finished!</h3>
             <p className="final-score">Your final score: {score}</p>
             <Button label="Restart Quiz" onClick={resetQuiz} />
+            <Button label="Logout" icon="pi pi-sign-out" severity="danger" onClick={handleLogout} />
           </div>
         ) : (
           <form onSubmit={submitAnswer}>

@@ -34,3 +34,31 @@
     font-size: 1rem;
   }
 }
+
+.score-header {
+  font-size: 2rem;        /* pehle 1.4rem tha, ab bada */
+  font-weight: 700;       /* bold */
+  color: #007ad9;         /* thoda blue, tu chahe toh apna accent warna use kar */
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.question-text {
+  font-size: 1.45rem;     /* pehle 1.25rem tha, ab bada */
+  font-weight: 700;       /* bold */
+  color: #34495e;
+  margin-bottom: 1.8rem;
+  line-height: 1.4;
+  text-align: center;
+  letter-spacing: 1px;
+}
+@media (max-width: 500px) {
+  .score-header {
+    font-size: 1.25rem;
+  }
+  .question-text {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
