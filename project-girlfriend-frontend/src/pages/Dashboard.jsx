@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from 'primereact/button';
 import SongCard from '../components/songs/SongCard';
 import ComplimentCard from '../components/compliments/ComplimentCard';
+import QuizCard from '../components/quiz/QuizCard';
 const Dashboard = ({setIsLoggedIn}) => {
    
    const handleLogout = () => {
@@ -21,7 +22,8 @@ const Dashboard = ({setIsLoggedIn}) => {
         <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
         <MoodCard onClick={()=>navigate('/mood')}/>
         <SongCard onClick={()=>navigate('/romantic-songs')}/>
-        <ComplimentCard onClick={()=>navigate('/compliments')}/>  
+        <ComplimentCard onClick={()=>navigate('/compliments')}/> 
+         <QuizCard onClick={()=>navigate('/quiz')}/>  
         </div>
     </div>
   )
