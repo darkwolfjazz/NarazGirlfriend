@@ -9,7 +9,7 @@ import './QuizComponent.css';
         
 
 const TOTAL_QUESTIONS=6;
-const QuizComponent = () => {
+const QuizComponent = ({setIsLoggedIn}) => {
   const [questionData, setQuestionData] = useState(null);
   const[selectedOption,setSelectedOption]=useState('');
   const[score,setScore]=useState(0);
@@ -20,6 +20,12 @@ const QuizComponent = () => {
 
   const[usedQuestionIds,setUsedQuestionIds]=useState(new Set());
 
+  const handleLogout=()=>{
+    localStorage.removeItem('isLoggedIn');
+    setIsLoggedIn(false);
+    navigate('/')
+  };
+  
   const fetchUniqueQuestion=async()=>{
      setLoading(true);
      try{
@@ -169,6 +175,7 @@ const QuizComponent = () => {
             </div>
 
             <Button label={loading ? "Checking..." : "Submit Answer"} type="submit" disabled={loading} />
+             <Button label="Logout" icon="pi pi-sign-out" severity="danger" onClick={handleLogout} />
           </form>
         )}
       </Card>

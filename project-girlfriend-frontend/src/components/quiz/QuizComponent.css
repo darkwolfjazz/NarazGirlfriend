@@ -1,98 +1,36 @@
-/* Container center and padding */
-.quiz-container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Card styling override */
-.p-card {
-  border-radius: 1rem !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  background-color: #ffffff;
-  padding: 2rem !important;
-}
-
-/* Score header */
-.score-header {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* Question text */
-.question-text {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #34495e;
-  margin-bottom: 1.5rem;
-  line-height: 1.4;
-  text-align: center;
-}
-
-/* Options container */
 .options-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  width: 100%;           /* ensures all options take full width */
 }
 
-/* Individual option label */
+.p-field-radiobutton {
+  display: flex;
+  align-items: center;
+  min-height: 40px;      /* card look remains uniform */
+  width: 100%;
+}
+
 .p-field-radiobutton label {
+  padding-left: 0.7rem;
   font-size: 1.1rem;
   color: #2c3e50;
   cursor: pointer;
   user-select: none;
-  padding-left: 0.5rem;
-  transition: color 0.3s ease;
+  /* align-self: center;   -- not mandatory, only add if label jumps */
 }
 
-.p-field-radiobutton:hover label {
-  color: #007ad9;
-}
-
-/* Radio button style overrides */
-.p-field-radiobutton .p-radiobutton-box {
-  border: 2px solid #007ad9;
-  width: 20px;
-  height: 20px;
-  transition: border-color 0.3s ease;
-}
-
-.p-field-radiobutton .p-radiobutton-box.p-highlight {
-  background-color: #007ad9;
-  border-color: #005fa3;
-}
-
-/* Submit and restart buttons */
-.p-button {
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 30px;
-  padding: 0.6rem 2rem;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.p-button:enabled:hover {
-  background-color: #005fa3 !important;
-  box-shadow: 0 6px 12px rgba(0, 123, 217, 0.4);
-}
-
-/* Finished message */
-.quiz-over-message {
-  text-align: center;
-  font-size: 1.3rem;
-  color: #27ae60;
-  margin-bottom: 1rem;
-}
-
-.final-score {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #16a085;
-  margin-bottom: 2rem;
+/* For mobile responsiveness, if needed: */
+@media (max-width: 500px) {
+  .score-header,
+  .question-text,
+  .options-container,
+  .quiz-over-message {
+    font-size: 1rem;
+  }
+  .p-field-radiobutton label {
+    font-size: 1rem;
+  }
 }
