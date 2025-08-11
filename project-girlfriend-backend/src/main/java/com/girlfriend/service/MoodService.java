@@ -46,12 +46,12 @@ public String fixMood(String mood,String reason,int number){
         return selectedVideo;
     }else{
         List<String>couponList=List.of("TRYNEW","WELCOME50","AXIS200","SWGLOVE20","FOODIE100","CUTIECAFE50");
-        String selected=couponList.get(new Random().nextInt(couponList.size()));
-        System.out.println("Selected coupon->"+selected);
+        String selectedCoupon =couponList.get(new Random().nextInt(couponList.size()));
+        System.out.println("Selected coupon->"+ selectedCoupon);
         SimpleMailMessage mailMessage=new SimpleMailMessage();
         mailMessage.setTo(userMail);
-        mailMessage.setSubject("You crazy ass");
-        mailMessage.setText("selected list");
+        mailMessage.setSubject("Hey Love ❤\uFE0F Your Special Food Coupon is Here!");
+        mailMessage.setText("Hey love, Just wanted to send you a small treat today. Your special coupon code is:" +" " + selectedCoupon + "  " +  "Enjoy something tasty and think of me while you do");
         mailSender.send(mailMessage);
         return "Mail sent!!";
     }
