@@ -6,6 +6,7 @@ import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
+import prodUrl from "../../api";
 
 // THEME IMPORTS should be at the app entry point (not in this file!)
 // import 'primereact/resources/themes/lara-light-indigo/theme.css';
@@ -20,7 +21,7 @@ const LoginForm = ({setIsLoggedIn}) => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post('http://localhost:8080/api/login', 
+      const res = await prodUrl.post('/api/login', 
         { username, 
           password 
         });

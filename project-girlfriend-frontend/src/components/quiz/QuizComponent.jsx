@@ -6,7 +6,7 @@ import { Card } from 'primereact/card';
 import { RadioButton } from 'primereact/radiobutton';
 import { Button } from 'primereact/button';
 import './QuizComponent.css';
-        
+import prodUrl from "../../api";        
 
 const TOTAL_QUESTIONS=6;
 const QuizComponent = ({setIsLoggedIn}) => {
@@ -32,7 +32,7 @@ const QuizComponent = ({setIsLoggedIn}) => {
       let tries=0;
       const maxTries=10;
       while(tries<maxTries){
-        const response=await axios.get('http://localhost:8080/api/getRandomQuiz');
+        const response=await prodUrl.get('/api/getRandomQuiz');
         const data=response.data;
         console.log("Data from getRandom Quiz->",data);
         if(!data){

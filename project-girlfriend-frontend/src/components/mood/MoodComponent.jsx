@@ -8,6 +8,7 @@ import { InputNumber } from 'primereact/inputnumber';
 import { Card } from 'primereact/card';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import prodUrl from "../../api";
 
 const MoodComponent = ({setIsLoggedIn}) => {
   const [mood, setMood] = useState('');
@@ -42,7 +43,7 @@ const MoodComponent = ({setIsLoggedIn}) => {
     }
 
     try {
-      const res = await axios.post('http://localhost:8080/mood/fix', {
+      const res = await prodUrl.post('/mood/fix', {
         mood,
         reason,
         luckyNumber
