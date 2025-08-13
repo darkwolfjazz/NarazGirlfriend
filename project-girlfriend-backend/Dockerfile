@@ -1,14 +1,26 @@
-# Use an OpenJDK base image
-FROM eclipse-temurin:21-jdk-alpine
+# ===== Stage 1 : Build stage =====
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy the built jar file (make sure the build process generates it in target/)
-COPY target/*.jar app.jar
+# Copy Maven descriptor and source code
+COPY pom.xml .
+COPY src ./src
 
-# Expose the port your Spring Boot app runs on (usually 8080)
+# Build the application (skip tests for faster build)
+RUN mvn clean package -DskipTests
+
+# ===== Stage 2 : Runtime stage =====
+FROM eclipse-temurin:21-jdk-alpine
+
+WORKDIR /app
+
+# Copy jar from the build stage
+COPY --from=build /app/target/*.jar app.jar
+
+# Expose application port
 EXPOSE 8080
 
-# Run the jar file
+# Run the application with prod profile
 ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "app.jar"]
