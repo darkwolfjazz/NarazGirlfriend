@@ -85,7 +85,7 @@ const QuizComponent = ({setIsLoggedIn}) => {
         quizId: questionData.id,
         userAnswer: selectedOption,
       });
-      const response = await axios.post(`http://localhost:8080/api/checkScore?${params.toString()}`);
+      const response = await prodUrl.post(`/api/checkScore?${params.toString()}`);
       const points = response.data;
       console.log("Points API->",points);
       setScore(prev => prev + points);

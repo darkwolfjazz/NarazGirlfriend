@@ -6,6 +6,7 @@ import { Card } from 'primereact/card';
 import { Toast } from 'primereact/toast';
 import { useNavigate } from 'react-router-dom';
 import './ComplimentComponent.css';
+import prodUrl from "../../api";  
 const ComplimentComponent = ({setIsLoggedIn}) => {
   
   const[word,setWord]=useState('');
@@ -37,7 +38,7 @@ const ComplimentComponent = ({setIsLoggedIn}) => {
     setCompliment('');
 
     try {
-      const response = await axios.post('http://localhost:8080/api/compliment', {
+      const response = await prodUrl.post('/api/compliment', {
         word: word
       });
 
